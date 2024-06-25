@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mercado_verde/src/pages/cart/cart_tab.dart';
 import 'package:mercado_verde/src/pages/home/home_tab.dart';
 import 'package:mercado_verde/src/pages/orders/orders_tab.dart';
-import 'package:mercado_verde/src/pages/profile/profile_tab.dart';
+import 'package:mercado_verde/src/pages/maps/maps_tab.dart';
 
 class BaseScreen extends StatefulWidget {
  const BaseScreen({super.key});
@@ -55,7 +55,7 @@ class _BaseScreenState extends State<BaseScreen> {
               icon: Icon(Icons.list), label: 'Pedidos'),
 
           BottomNavigationBarItem(
-              icon: Icon(Icons.person_outlined), label: 'Perfil'),
+              icon: Icon(Icons.map_outlined), label: 'mapa'),
         ],
       ),
     );

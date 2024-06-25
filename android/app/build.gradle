@@ -22,10 +22,35 @@ if (flutterVersionName == null) {
     flutterVersionName = '1.0'
 }
 
-android {
+apply from: project(':flutter_config').projectDir.getPath() + "/dotenv.gradle"
+
+android { 
     namespace "br.com.varnier.mercado_verde"
     compileSdk flutter.compileSdkVersion
     ndkVersion flutter.ndkVersion
+    compileSdkVersion 34
+    defaultConfig {
+        applicationId "com.example.mercado_verde"
+        minSdkVersion 21
+        targetSdkVersion 33
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+             minifyEnabled true // Ative a redução de código
+            shrinkResources true // Ative a redução de recursos
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled true // Opcional, mas recomendado para testes
+            shrinkResources true // Opcional, mas recomendado para testes
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        
+        }
+    }
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -46,6 +71,8 @@ android {
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
         minSdkVersion flutter.minSdkVersion
+        ext.kotlin_version = '1.9.22'
+        minSdkVersion 20 
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
@@ -64,4 +91,5 @@ flutter {
     source '../..'
 }
 
-dependencies {}
+dependencies {
+}
